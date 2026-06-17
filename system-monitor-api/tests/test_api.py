@@ -12,10 +12,14 @@ def client():
     with app.test_client() as client:
         yield client
 
-def test_health_check(client):
-    response = client.get("/health")
-    assert response.status_code == 200
-
 def test_system_metrics(client):
     response = client.get("/system")
     assert response.status_code == 200
+
+def test_system_metrics_returns_json(client):
+    response = client.get("/system")
+    data = response.get_json()
+    assert data["status"] == "ok"
+    assert "cpu" in data
+    assert "memory" in data
+    assert "disk" in data
