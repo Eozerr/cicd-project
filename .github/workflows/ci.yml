@@ -20,6 +20,7 @@ jobs:
         run: pip install -r system-monitor-api/requirements.txt
 
       - name: Testleri çalıştır
+        working-directory: system-monitor-api
         run: pytest tests/ -v
 
   build-and-push:
