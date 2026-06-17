@@ -1,0 +1,9 @@
+# cicd-project/.dockerignore
+.git
+.github
+*.pyc
+__pycache__
+.env
+.env.*
+tests/
+*.md
