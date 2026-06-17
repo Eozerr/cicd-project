@@ -42,5 +42,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ekrem/system-monitor-api:latest
-            ekrem/system-monitor-api:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/system-monitor-api:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/system-monitor-api:${{ github.sha }}
